@@ -5,9 +5,6 @@ top = Tk()
 songList = []
 myRoll = []
 
-def addTrack():
-    songList.append(E1.get())
-    E1.delete(0, END)
 
 def printList():
     print(songList)
@@ -32,7 +29,7 @@ def mainMenu():
     B2Main = Button(text = "week 2", bg = "white", command= week2)
     B2Main.grid(column= 1, row = 3)
 
-    B3Main = Button(text = "week 3", bg = "white")
+    B3Main = Button(text = "week 3", bg = "white", command = week3)
     B3Main.grid(column= 1, row = 4)
 
 
@@ -42,22 +39,26 @@ def week1():
     L1 = Label(top, text="ourTunes")
     L1.grid(column= 0, row= 1)
 
+    def addTrack():
+        songList.append(E1.get())
+        E1.delete(0, END)
+
     #this is an entry widget (for text entry)
     E1 = Entry(top, bd = 5)
     E1.grid(column= 0, row = 2)
 
 
-    B1 = Button(text = " + ", bg = "white", command= addTrack)
-    B1.grid(column= 1, row = 2)
+    B1 = Button(text = " + ", bg = "white", command = addTrack)
+    B1.grid(column = 1, row = 2)
 
     B2 = Button(text = "playList", bg = "#d4850f", command = printList)
-    B2.grid(column= 1, row = 1)
+    B2.grid(column = 1, row = 1)
 
-    B3 = Button(text="Export", bg= "#4940e6", command= exportList)
-    B3.grid(column= 1, row = 3)
+    B3 = Button(text = "Export", bg= "#4940e6", command = exportList)
+    B3.grid(column = 1, row = 3)
 
-    B4 = Button(text="Main Menu", bg= "yellow", command= MainMeanu)
-    B3.grid(column= 0, row = 3)
+    B4 = Button(text = "MainMenu", bg= "yellow", command = mainMenu)
+    B3.grid(column = 0, row = 3)
 
 def week2():
     def rollDice():
@@ -75,7 +76,7 @@ def week2():
         L5W2 = label(top, text= "{}".format(myRolls))
         L4W2.grid(column= 0, row =1)
         
-        B2W2 = button(text= "main Meanu", bg= "yellow",command = mainMeanu)
+        B2W2 = button(text= "main Menu", bg= "yellow",command = mainMenu)
     
     clearWindow()
 
@@ -101,6 +102,9 @@ def week2():
     Bclear.grid(column= 5, row = 20)
                     
     print(E1.get())
+
+def week3():
+    clearWindow()
 
 
 if __name__ == "__main__":
